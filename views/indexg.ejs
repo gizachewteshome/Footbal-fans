@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+<div class="table-wrapper">
+        <% if (goals.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">name_goal_scorer</th>
+                        <th scope="col">typeofcompeti</th>
+                        <th scope="col">numbergoal</th>
+                        <th scope="col">date</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% goal.forEach((goal, index) => { %>
+                        <tr>
+                            <th scope="row"><%= goal.id %></th>
+                            <td><img src="/assets/img/<%= goal.image %>" class="rounded-circle player-img" alt=""></td>
+                            <td><%= goal.name_goal_scorer %></td>
+                            <td><%= goal.typeofcompeti %></td>
+                            <td><%= goal.numbergoal %></td>
+                            <td><%= goal.date %></td>
+                            <td>@<%= goal.user_name %></td>
+                            <td>
+                                <a href="/goal-edit/<%= goal.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= goal.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No goal found. Go <a href="/add-goal" >here</a> to add goals.</p>
+        <% } %>
+    </div>

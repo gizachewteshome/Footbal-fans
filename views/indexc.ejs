@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+<div class="table-wrapper">
+        <% if (clubs.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">club_name</th>
+                        <th scope="col">country</th>
+                        <th scope="col">numberofstaff</th>
+                        <th scope="col">supporters_number</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% clubs.forEach((club, index) => { %>
+                        <tr>
+                            <th scope="row"><%= club.id %></th>
+                            <td><img src="/assets/img/<%= club.image %>" class="rounded-circle player-img" alt=""></td>
+                            <td><%= club.club_name %></td>
+                            <td><%= club.country %></td>
+                            <td><%= club.numberofstaff %></td>
+                            <td><%= club.supporters_number %></td>
+                            <td>@<%= club.user_name %></td>
+                            <td>
+                                <a href="/edit-club/<%= club.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= club.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No clubs found. Go <a href="/add" >here</a> to add clubs.</p>
+        <% } %>
+    </div>

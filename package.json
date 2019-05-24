@@ -1,0 +1,21 @@
+{
+  "name": "football-fans-page",
+  "version": "1.0.0",
+  "description": "\"# football-fans-page\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "express-fileupload": "^0.4.0",
+    "express-generator": "^4.16.0",
+    "mysql": "^2.17.1",
+    "req-flash": "0.0.3"
+  }
+}
